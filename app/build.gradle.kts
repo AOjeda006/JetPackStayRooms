@@ -9,11 +9,11 @@ ksp {
     arg("room.schemaLocation", "$projectDir/schemas")
 }
 android {
-    namespace = "com.example.jetpackstayrooms"
+    namespace = "com.aojeda.jetpackstayrooms"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.jetpackstayrooms"
+        applicationId = "com.aojeda.jetpackstayrooms"
         minSdk = 30
         targetSdk = 36
         versionCode = 1
@@ -41,6 +41,11 @@ android {
     buildFeatures {
         compose = true
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 val composeVersion = "1.5.3"
 val navVersion = "2.7.3"
@@ -60,6 +65,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     testImplementation(libs.junit)
+    testImplementation(libs.robolectric)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
